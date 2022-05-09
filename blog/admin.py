@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Post
+
+
+@admin.register(Post)
+class Postadmin(admin.ModelAdmin):
+    list_display = ('title', 'status', 'datetime_modified')
+    ordering = ('status',)
+
+# admin.site.register(Post, Postadmin)
