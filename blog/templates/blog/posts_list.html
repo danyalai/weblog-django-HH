@@ -12,12 +12,14 @@
             <div class="col-9">
                 <div class="card shadow-sm my-3">
                     <div class="card-body">
+                        <h4>{{ post.id }}</h4>
                         <h5 class="card-title">{{ post.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted small py-2">{{ post.datetime_created }}</h6>
                         <p class="card-text py-3">
                             {{ post.text }}
                         </p>
-                        <div class="btn btn-sm btn-success">Read More</div>
+{#                        <a href="/blog/{{ post.id }}" class="btn btn-sm btn-success">Read More</a>#}
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-success">Read More</a>
                     </div>
                 </div>
             </div>
