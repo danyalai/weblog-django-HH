@@ -1,5 +1,5 @@
 from turtle import title
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 
 from .models import Post
@@ -21,7 +21,8 @@ def post_form(request):
         form = NewPostForm(request.POST)
         if form.is_valid():
             form.save()
-            form = NewPostForm()
+            return redirect('posts_list')
+            # form = NewPostForm()
     else:
         form = NewPostForm()
     return render(request, 'blog/add_post.html', context={'form':form})    
