@@ -20,6 +20,8 @@
                         </p>
 {#                        <a href="/blog/{{ post.id }}" class="btn btn-sm btn-success">Read More</a>#}
                         <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-success">Read More</a>
+                        <a href="{% url 'post_update' post.id %}" class="btn btn-sm btn-info">edit</a>
+                        <a href="{% url 'post_delete' post.id %}" class="btn btn-sm btn-danger">delete</a>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import re
 from turtle import title
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
@@ -35,6 +36,15 @@ def post_update_view(request, pk):
         form.save()
         return redirect('posts_list')
     return render(request, 'blog/add_post.html', context={'form': form})
+
+def post_delete_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    
+    if request.method == 'POST':
+        post.delete()
+        return redirect('posts_list')
+    return render(request, 'blog/post_delete.html', context={'post': post})
+        
 
     # if request.method == 'POST':
     #     post_title = request.POST.get('title')
